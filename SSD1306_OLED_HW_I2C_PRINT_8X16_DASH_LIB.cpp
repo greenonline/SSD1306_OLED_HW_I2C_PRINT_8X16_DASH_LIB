@@ -14,7 +14,7 @@ void SSD1306_OLED_HW_I2C_PRINT_8X16_DASH_LIB::D_DRAW_VERT_DASHED(uint8_t xpos, u
     uint8_t ypages_span = ypage_end - ypage_start;          // how many pages does the line span?
 
     uint8_t dot_byte_start = 0xFD << (ypos % 8);            // create a byte with dots to represent first page (a column of 8 pixels)
-//#if defined (__Using_inverted_vertical_line_fix__)
+#if defined (__Using_inverted_vertical_line_fix__)
     uint8_t dot_byte_end = 0xBF >> (8 - ((ypos+length) % 8));     // create a byte with dot to represent last page
 // Alternative fix
 //    uint8_t dot_byte_end = 0xFF << ((ypos+length) % 8 /*- 2*/);     // create a byte with dot to represent last page
